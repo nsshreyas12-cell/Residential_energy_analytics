@@ -15,7 +15,7 @@ def generate_timeseries_data(days=90):
     end_date = datetime.now()
     start_date = end_date - timedelta(days=days)
     
-    timestamps = pd.date_range(start=start_date, end=end_date, freq='H')
+    timestamps = pd.date_range(start=start_date, end=end_date, freq='h') # <--- Lowercase 'h'
     df = pd.DataFrame({'timestamp': timestamps})
     
     df['hour'] = df['timestamp'].dt.hour
