@@ -158,7 +158,7 @@ with tab1:
         height=600,
         margin=dict(l=0, r=0, b=0, t=0)
     )
-    st.plotly_chart(fig_3d, use_container_width=True)
+    st.plotly_chart(fig_name, width='stretch')
 
 with tab2:
     st.subheader("Next 48-Hour Consumption Forecast")
@@ -177,7 +177,7 @@ with tab2:
                        title="Historical vs. Forecasted Energy Usage (kWh)",
                        color_discrete_map={"Historical": "blue", "AI Forecast": "orange"})
     
-    st.plotly_chart(fig_line, use_container_width=True)
+    st.plotly_chart(fig_name, width='stretch')
 
 with tab3:
     st.subheader("AI Recommendations & Anomaly Detection")
@@ -197,6 +197,6 @@ with tab3:
         
     st.markdown("### Anomaly Timeline")
     fig_anom = px.scatter(df_time.tail(200), x='timestamp', y='total_kwh', color='is_anomaly',
-                          color_continuous_scale={0: 'blue', 1: 'red'},
-                          title="Recent Usage with Highlighted Spikes (Red)")
-    st.plotly_chart(fig_anom, use_container_width=True)
+                      color_continuous_scale=['blue', 'red'],
+                      title="Recent Usage with Highlighted Spikes (Red)")
+    st.plotly_chart(fig_name, width='stretch')
